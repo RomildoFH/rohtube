@@ -32,13 +32,22 @@ const StyledHeader = styled.div`
     width: 100%;
     padding: 16px 32px;
     gap: 16px;
+  }
+  #banner {
     margin-top: 50px;
+    height: 100px;
+    width: 100%;
+    border-radius: 0;
+    background-image: url('https://images.unsplash.com/photo-1580584126903-c17d41830450?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=739&q=80');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 `;
 function Header() {
   return (
     <StyledHeader>
-      {/* <img src="banner" alt="banner" /> */}
+      <div id="banner" />
       <section className="user-data">
         <img src={ `https://github.com/${config.github}.png` } alt="foto-perfil" />
         <div>
