@@ -1,18 +1,20 @@
 import config from "../../config.json";
 import styled from "styled-components";
 import { CSSReset } from "../components/CSSReset";
-import Menu from "../components/Menu";
+import Menu from "../components/Menu/Menu";
 import { StyledTimeline } from "../components/StyledTimeLine.Js";
+import React from "react";
 
 function HomePage() {
-  const estilosDaHomePage = { width: "100%" }
+  const [valorDoFiltro, setValorDoFiltro]= React.useState("");
+  const estilosDaHomePage = {}
   return (
     <>
       <CSSReset />
         <div style={ estilosDaHomePage }>
-          <Menu />
+          <Menu valorDoFiltro={ valorDoFiltro } setValorDoFiltro={ setValorDoFiltro } />
           <Header />
-          <TimeLine playlists={ config.playlists } />
+          <TimeLine playlists={ config.playlists } filtro={ valorDoFiltro } />
         </div>
     </>
   );
@@ -71,7 +73,9 @@ function TimeLine(props) {
                 <h2>{ playlist.toUpperCase() }</h2>
                 <div>
                   {
-                    videos.map((video, index) => {
+                    videos.filter((video) => (
+                      video.title.toUpperCase().includes(props.filtro.toUpperCase())
+                    )).map((video, index) => {
                       return (
                         <a href={ video.url } key={`${playlist}-video-${index}`}>
                           <img src={ video.thumb } alt={ `${video.title}-image` } />
