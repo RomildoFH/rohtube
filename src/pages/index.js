@@ -1,6 +1,5 @@
 import config from "../../config.json";
 import styled from "styled-components";
-import { CSSReset } from "../components/CSSReset";
 import Menu from "../components/Menu/Menu";
 import { StyledTimeline } from "../components/StyledTimeLine.Js";
 import React from "react";
@@ -10,12 +9,11 @@ function HomePage() {
   const estilosDaHomePage = {}
   return (
     <>
-      <CSSReset />
-        <div style={ estilosDaHomePage }>
-          <Menu valorDoFiltro={ valorDoFiltro } setValorDoFiltro={ setValorDoFiltro } />
-          <Header />
-          <TimeLine playlists={ config.playlists } filtro={ valorDoFiltro } />
-        </div>
+      <div style={ estilosDaHomePage }>
+        <Menu valorDoFiltro={ valorDoFiltro } setValorDoFiltro={ setValorDoFiltro } />
+        <Header />
+        <TimeLine playlists={ config.playlists } filtro={ valorDoFiltro } />
+      </div>
     </>
   );
 }
@@ -23,6 +21,7 @@ function HomePage() {
 export default HomePage
 
 const StyledHeader = styled.div`
+  background-color: ${({ theme }) => theme.backgroundLevel1};
   img {
     width: 80px;
     height: 80px;

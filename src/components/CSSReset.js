@@ -19,6 +19,8 @@ export const CSSReset = createGlobalStyle`
   body {
     display: flex;
     flex: 1;
+    background-color: ${({ theme }) => theme.backgroundBase || "#FFFFFF"};
+    color: ${({ theme }) => theme.textColorBase || "#FFFFFF"};
   }
   #__next {
     display: flex;
